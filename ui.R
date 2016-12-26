@@ -15,8 +15,12 @@ shinyUI(pageWithSidebar(
     width = 4
   ),
   mainPanel(
-    htmlOutput("view")
-    ## Optional
-    ## dataTableOutput('table')
+    
+    tabsetPanel(
+      tabPanel("Plot", htmlOutput("view")),
+      tabPanel("Data", dataTableOutput('table')),
+      ## tabPanel("Summary", verbatimTextOutput("summary"))
+      tabPanel("Source", "Data source: http://databank.worldbank.org/data/download/WDI_csv.zip" )
+    )
   )
 ))

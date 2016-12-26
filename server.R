@@ -5,6 +5,7 @@ shinyServer( function(input, output, session) {
   
     datasetInput <- reactive({ data <- data[which(data$Year==input$year),c("Country", "Region",input$selectY,input$selectX,input$selectSize),]})
     
+    ## chart
     output$view <- renderGvis({
       gvisBubbleChart(datasetInput(), 
           idvar="Country", 
@@ -20,8 +21,9 @@ shinyServer( function(input, output, session) {
           width="100%", height=500)
         )
     })
-    ## Optional
-    ## output$table <- renderDataTable(datasetInput())
+    ## data table
+    output$table <- renderDataTable(datasetInput())
+    
   }
 )
 
