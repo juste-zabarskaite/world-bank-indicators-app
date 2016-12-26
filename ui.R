@@ -20,7 +20,19 @@ shinyUI(pageWithSidebar(
       tabPanel("Plot", htmlOutput("view")),
       tabPanel("Data", dataTableOutput('table')),
       ## tabPanel("Summary", verbatimTextOutput("summary"))
-      tabPanel("Source", "Data source: http://databank.worldbank.org/data/download/WDI_csv.zip" )
+      ## tabPanel("Source", "Data source: http://databank.worldbank.org/data/download/WDI_csv.zip. Code: https://github.com/juste-zabarskaite/world-bank-indicators-app" )
+      tabPanel("Documentation", withTags({
+        div(class="header", checked=NA,
+            p(""),
+            p("The purpose of this app is to visualise dependencies between World Bank indicators (GDP, population, etc.) for exploratory analysis."),
+            p(""),
+            p("Data source (accessed 24/12/2016):"),
+            a(href="http://databank.worldbank.org/data/download/WDI_csv.zip", "http://databank.worldbank.org/data/download/WDI_csv.zip"),
+            p(""),
+            p("Code:"),
+            a(href="https://github.com/juste-zabarskaite/world-bank-indicators-app", "https://github.com/juste-zabarskaite/world-bank-indicators-app")
+        )
+      }) )
     )
   )
 ))
